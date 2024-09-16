@@ -1,0 +1,128 @@
+@import "../../app.scss";
+
+.contact {
+  height: 100%;
+  max-width: 1366px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding-left: 5rem;
+  padding-right: 5rem;
+@media (max-width: 320px) {
+  padding: 0px;
+  margin: 0%;
+  padding-bottom: 100%;
+}
+
+  .textContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+   
+
+    h1 {
+      font-size: 100px;
+      line-height: 88px;
+@media (max-width: 768px) {
+  font-size: 50px;
+}
+
+    
+    }
+
+@media (max-width: 768px) {
+  h2{
+    font-size: 15px;
+  }
+}
+    span {
+      font-weight: 300;
+@media (max-width: 768px) {
+  font-size: 15px;
+}
+    }
+  }
+
+  .formContainer {
+    flex: 1;
+    position: relative;
+    
+    .phoneSvg {
+      stroke: #FF335F;
+      position: absolute;
+      margin: auto;
+      z-index: -1;
+
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      input,
+      textarea {
+        padding: 20px;
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        border-radius: 5px;
+@media (max-width: 768px) {
+  font-size: 12px;
+}
+      }
+
+      button {
+        padding: 20px;
+        border: none;
+        background-color: #FF335F;
+        cursor: pointer;
+        font-weight: 500;
+@media (max-width: 768px) {
+  font-size: 12px;
+  padding: 13px;
+}
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .call{
+    height: 250px;
+    width: 250px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+     .contact{ 
+      width: 100%;
+      padding: 10px;
+      flex-direction: column;
+    }
+      .button{
+          padding: 10px;
+      }
+      input,
+      textarea{
+        padding: 10px;
+       }
+      .formContainer{
+        padding: 50px;
+        width: 100%;
+      }
+      h1{
+     font-size: 36px;
+            }
+            .textContainer{
+
+                  gap: 20px;
+                  text-align: center;
+                  align-items: center;
+                  margin-top: 70px;
+                }
+            
+    }

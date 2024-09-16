@@ -1,0 +1,70 @@
+/* styles.module.css */
+@keyframes aboutSpinner {
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
+  /* Define a class to apply the animation */
+  #aboutSpinner {
+    animation: aboutSpinner 2s linear infinite;
+  }
+  .btn-box.btns {
+    width: 15rem;
+    height: 45rem;
+  }
+ 
+  .btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 55px;
+    background: #ff335f;
+    border: 0.2rem solid #ff335f;
+    border-radius: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.5s;
+  }
+  .btnboxbtns{
+    padding-bottom: 20px;
+  }
+  .btn:hover {
+    color: #ff335f;
+  }
+  
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: white;
+    z-index: -1;
+    transition: 0.5s;
+  }
+  
+  .btn:hover::before {
+    width: 100%;
+  }
+  @media only screen and (max-width: 640px) {
+    .btn:hover {
+      color: white;
+    }
+  
+    .btn::before {
+      background: initial;
+      z-index: -1;
+    }
+    .btn {
+      padding: 20px;
+      height: 10px;
+    }
+  }
+  
