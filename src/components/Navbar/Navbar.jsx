@@ -4,7 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 
 const navLinks = [
   { title: "About Me", href: "#Footer" },
-  { title: "Github Stats", href: "" },
+  { title: "Skills", href: "" },
   { title: "Blogs", href: "/" },
   { title: "Contact", href: "/" },
 ];
@@ -61,12 +61,12 @@ function NavBar() {
         <nav className="flex items-center justify-between p-7 md:p-0">
           <div className="rounded-full flex items-center">
             <img
-              src="/saroj.png"
-              alt="Saroj Gurung"
+              src="/santosh-adhikari.webp"
+              alt="Santosh Adhikari"
               className="w-16 lg:w-20 2xl:w-12 xl:w-28 xl:h-28 2xl:h-12 rounded-full object-cover"
             />
             <h1 className="pl-3 text-2xl lg:text-3xl xl:text-lg text-lightgray">
-              Saroj Gurung
+              Santosh Adhikari
             </h1>
             <img src="/bluetick.png" className="w-8 h-7 pl-1" alt="BlueTick" />
           </div>
@@ -89,7 +89,7 @@ function NavBar() {
             </li>
             <li className="relative group">
               <a href="#" className="text-lightgray">
-                Github Stats
+                Skills
               </a>
               <div className="absolute bottom-0 left-0 w-0 bg-[#FF005A] h-0.5 transition-all duration-300 group-hover:w-full"></div>
             </li>
@@ -119,7 +119,7 @@ function NavBar() {
           >
             <div className="flex h-full flex-col">
               <div className="flex justify-between items-center">
-                <h1 className="text-3xl text-[#FF005A]">Saroj Gurung</h1>
+                <h1 className="text-3xl text-[#FF005A]">Santosh Adhikari</h1>
                 <RxCross2
                   onClick={toggleMenu}
                   className="text-6xl text-[#FF005A] mr-3"

@@ -12,7 +12,7 @@ const AboutMe = () => {
         </h2>
         <div className="relative xl:w-[25rem] xl:h-[25rem] rounded-[50%] mt-10 xl:pt-0 flex justify-center items-center">
           <img
-            src="saroj.png"
+            src="santosh-adhikari.webp"
             alt=""
             className="w-[30vh] xl:w-[75%] rounded-[50%] border-[0.2rem] border-[solid] border-[#FF335F]"
           />
@@ -28,7 +28,7 @@ const AboutMe = () => {
             <span className="animate scroll" />
           </h3>
           <p className="relative xl:text-[16px] text-[13px] mt-8 mx-[0] mb-6">
-            Hello! Saroj gurung here. A technology fanatic!
+            Hello! Santosh Adhikari here. A technology fanatic!
             <br />
             Currently, I am enrolled in the Department of Information and
             Communication Technology at Butwal Multiple Campus in Butwal. My

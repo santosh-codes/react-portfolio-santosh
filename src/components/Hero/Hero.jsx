@@ -18,14 +18,16 @@ const Hero = () => {
         className="home h-auto show-animate py-28 md:py-40 xl:py-24 md:px-10 lg:px-32 xl:px-28"
         id="home"
       >
-        <div className="home-content">
+        <div className="home-content text-center">
           <h1>
-            Hi, I'm <span>Saroj Gurung</span>
+            Hi, I'm <span>Santosh Adhikari</span>
           </h1>
-          <div className="text-animate">
-            <h3>Front-End Developer</h3>
+          <div className="flex items-center justify-center">
+            <div className="text-animate text-center">
+              <h3>DevOps Engineer</h3>
+            </div>
           </div>
-          <p className="w-auto">
+          <p className="text-center">
             I am a dedicated, self-assured, and eager learner who is constantly
             looking for opportunities to pick up the new abilities. I
             particularly want to put my knowledge and experience in Web
