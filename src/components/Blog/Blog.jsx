@@ -42,7 +42,7 @@ const Single = ({ item }) => {
   const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
 
   return (
-    <section>
+    <section id="blogs">
       <div className="container">
         <div className="wrapper">
           <div className="imageContainer" ref={ref}>
@@ -77,7 +77,7 @@ const Blog = () => {
   return (
     <div className="portfolio" ref={ref}>
       <div className="progress">
-        <h1>Featured Blogs</h1>
+        <h1 className="text-[50px]"><span className="text-white">Featured</span> Blogs</h1>
         <motion.div style={{ scaleX }} className="progressBar"></motion.div>
       </div>
       {items.map((item) => (

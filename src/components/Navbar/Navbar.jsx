@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { RxCross2 } from "react-icons/rx";
 
 const navLinks = [
-  { title: "About Me", href: "#Footer" },
+  { title: "About Me", href: "#aboutme" },
   { title: "Skills", href: "" },
   { title: "Blogs", href: "/" },
   { title: "Contact", href: "/" },
@@ -68,7 +68,7 @@ function NavBar() {
             <h1 className="pl-3 text-2xl lg:text-3xl xl:text-lg text-lightgray">
               Santosh Adhikari
             </h1>
-            <img src="/bluetick.png" className="w-8 h-7 pl-1" alt="BlueTick" />
+            {/* <img src="/bluetick.png" className="w-8 h-7 pl-1" alt="BlueTick" /> */}
           </div>
 
           <div className="space-y-2 mr-7 block lg:hidden" onClick={toggleMenu}>
@@ -82,7 +82,7 @@ function NavBar() {
             style={buttonStyle}
           >
             <li className="relative group">
-              <a href="AboutMe" className="text-lightgray">
+              <a href="#aboutme" className="text-lightgray">
                 About Me
               </a>
               <div className="absolute bottom-0 left-0 w-0 bg-[#FF005A] h-0.5 transition-all duration-300 group-hover:w-full"></div>
@@ -94,7 +94,7 @@ function NavBar() {
               <div className="absolute bottom-0 left-0 w-0 bg-[#FF005A] h-0.5 transition-all duration-300 group-hover:w-full"></div>
             </li>
             <li className="relative group">
-              <a href="#" className="text-lightgray">
+              <a href="#blogs" className="text-lightgray">
                 Blogs
               </a>
               <div className="absolute bottom-0 left-0 w-0 bg-[#FF005A] h-0.5 transition-all duration-300 group-hover:w-full"></div>

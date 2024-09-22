@@ -3,7 +3,12 @@ import Marquee from "react-fast-marquee";
 const Skills = () => {
   return (
     <div className="px-12 py-20 md:px-16 lg:px-32 h-auto ">
+        <h2 className="relative xl:text-[50px] mb-0 text-center text-[28px]">
+          My <span className="text-[#FF335F]">Skills</span>
+          <span className="animate scroll" />
+        </h2>
       <Marquee pauseOnHover={true} className="cursor-pointer">
+        
         <img src="htmll.svg.png" alt="" className="h-24 w-24 lg:h-28 lg:w-28" />
         <img src="css.png" alt="" className="h-24 w-24 lg:h-28 lg:w-28 mx-5" />
         <img
@@ -19,7 +24,7 @@ const Skills = () => {
         <img
           src="/react.svg"
           alt=""
-          className="h-24 w-24 lg:h-28 lg:w-28mx-5"
+          className="h-24 w-24 lg:h-28 lg:w-28 mx-5"
         />
         <img
           src="/nextjs-2.svg"
