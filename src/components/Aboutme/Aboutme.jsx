@@ -47,7 +47,7 @@
 // };
 
 // export default AboutMe;
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs1";
 import { motion } from "framer-motion";
 import { Award, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
