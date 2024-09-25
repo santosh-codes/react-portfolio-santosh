@@ -52,6 +52,15 @@ import { motion } from "framer-motion";
 import { Award, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import {
   User2,
   MailIcon,
   HomeIcon,
@@ -62,6 +71,7 @@ import {
   CalendarCheck,
   CalendarX,
 } from "lucide-react";
+import { useState } from "react";
 
 const infoData = [
   {
@@ -70,15 +80,15 @@ const infoData = [
   },
   {
     icon: <PhoneCall size={20} />,
-    text: "+977 9703372025",
+    text: "+977 9847476262",
   },
   {
     icon: <MailIcon size={20} />,
-    text: "nepalisrk@gmail.com",
+    text: "santoshadhikari1345@gmail.com",
   },
   {
     icon: <Calendar size={20} />,
-    text: "Born on 10 Mar, 1998",
+    text: "Born on August 27, 1999",
   },
   {
     icon: <GraduationCap size={20} />,
@@ -86,7 +96,7 @@ const infoData = [
   },
   {
     icon: <HomeIcon size={20} />,
-    text: "Butwal, Devinagar",
+    text: "Butwal, Nepal",
   },
 ];
 
@@ -95,19 +105,14 @@ const qualificationData = [
     title: "education",
     data: [
       {
-        university: "Example University",
-        qualification: "Bacholer of Science",
-        years: "2015-2028",
+        university: "Crimson College of Technology, Pokhara University",
+        qualification: "Bachelors in Computer Application",
+        years: "2017-2022",
       },
       {
-        university: "Another University",
-        qualification: "Master of Arts",
-        years: "2019-2021",
-      },
-      {
-        university: "Yet Another University",
-        qualification: "Ph.D in Computer Science",
-        years: "2022-2025",
+        university: "New Horizon College",
+        qualification: "Computer Science, Management (+2)",
+        years: "2014-2017",
       },
     ],
   },
@@ -115,62 +120,69 @@ const qualificationData = [
     title: "experience",
     data: [
       {
-        company: "ABC Inc.",
-        role: "Software Engineer",
-        years: "2018-2020",
+        company: "Skillprompt Software Company",
+        role: "DevOps Engineer",
+        years: "June 2023 — Present",
       },
       {
-        company: "XYZ Corporation",
-        role: "Senior Developer",
-        years: "2020-2022",
+        company: "ByteFacuet Technology",
+        role: "Junior Full Stack Developer",
+        years: "Aug 2022 - Feb 2023",
       },
       {
-        company: "Tech Innovators",
-        role: "Lead Developer",
-        years: "2022-Present",
+        company: "DearHive Technologies",
+        role: "WordPress Intern",
+        years: "Jan 2022 - March 2022",
       },
     ],
   },
 ];
 
-const skillData = [
-  {
-    title: "certificates",
-    data: [
-      {
-        name: "HTML, CSS",
-      },
-      {
-        name: "Front-end Development",
-      },
-      {
-        name: "Javascript, PHP",
-      },
-      {
-        name: "Back-end Development",
-      },
-    ],
-  },
-  {
-    title: "tools",
-    data: [
-      {
-        name: "HTML, CSS",
-      },
-      {
-        name: "Front-end Development",
-      },
-      {
-        name: "Javascript, PHP",
-      },
-      {
-        name: "Back-end Development",
-      },
-    ],
-  },
-];
+// const skillData = [
+//   {
+//     title: "certificates",
+//     data: [
+//       {
+//         name: "HTML, CSS",
+//       },
+//       {
+//         name: "Front-end Development",
+//       },
+//       {
+//         name: "Javascript, PHP",
+//       },
+//       {
+//         name: "Back-end Development",
+//       },
+//     ],
+//   },
+//   {
+//     title: "tools",
+//     data: [
+//       {
+//         name: "HTML, CSS",
+//       },
+//       {
+//         name: "Front-end Development",
+//       },
+//       {
+//         name: "Javascript, PHP",
+//       },
+//       {
+//         name: "Back-end Development",
+//       },
+//     ],
+//   },
+// ];
 
 const AboutMe = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const handleOpen = () => setIsDialogOpen(true);
+  const handleClose = () => setIsDialogOpen(false);
+
+  const [isDialogOpens, setIsDialogOpens] = useState(false);
+  const handleOpens = () => setIsDialogOpens(true);
+  const handleCloses = () => setIsDialogOpens(false);
   const getData = (arr, title) => {
     return arr.find((item) => item.title === title);
   };
@@ -196,7 +208,10 @@ const AboutMe = () => {
                 >
                   Qualifications
                 </TabsTrigger>
-                <TabsTrigger className="w-[162px] xl:w-auto" value="certificates">
+                <TabsTrigger
+                  className="w-[162px] xl:w-auto"
+                  value="certificates"
+                >
                   Certificates
                 </TabsTrigger>
               </TabsList>
@@ -309,86 +324,190 @@ const AboutMe = () => {
                   </div>
                 </TabsContent>
                 <TabsContent value="certificates">
-               
                   <div className="flex flex-col gap-5 xl:flex-row">
-                  <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
+                    <Dialog
+                      open={isDialogOpen}
+                      onOpenChange={() => {
+                        handleClose();
+                      }}
                     >
-                      <Card className="w-full max-w-md overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
-                        <CardContent className="p-6">
-                          <div className="flex justify-between items-start mb-4">
-                            <div className="flex items-center space-x-2">
-                              <svg
-                                className="w-10 h-10"
-                                viewBox="0 0 32 32"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M15.63 31.388l-7.135-2.56V18.373l7.135 2.43zm1.3 0l7.135-2.56V18.373l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273zm-2.092-.8L0 14.22V3.75l7.135 2.43zm1.307 0l7.135-2.56V3.75L8.443 6.31zm-7.7-13.8l7.2-2.043 6.696 2.16-6.696 2.273zm23.052 13.8l-7.135-2.56V3.75l7.135 2.43zm1.3 0l7.135-2.56V3.75l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273z"
-                                  fill="#FF9900"
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        onClick={handleOpen}
+                        className="cursor-pointer"
+                      >
+                        <Card className="w-full max-w-md overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
+                          <CardContent className="px-6 pt-3.5">
+                            <div className="flex justify-between items-start mb-4">
+                              <div className="flex items-center space-x-2">
+                                {/* <svg
+                                  className="w-10 h-10"
+                                  viewBox="0 0 32 32"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M15.63 31.388l-7.135-2.56V18.373l7.135 2.43zm1.3 0l7.135-2.56V18.373l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273zm-2.092-.8L0 14.22V3.75l7.135 2.43zm1.307 0l7.135-2.56V3.75L8.443 6.31zm-7.7-13.8l7.2-2.043 6.696 2.16-6.696 2.273zm23.052 13.8l-7.135-2.56V3.75l7.135 2.43zm1.3 0l7.135-2.56V3.75l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273z"
+                                    fill="#FF9900"
+                                  />
+                                </svg> */}
+                                <img
+                                  src="https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
+                                  alt=""
+                                  className="h-10 w-10"
                                 />
-                              </svg>
-                              <span className="text-2xl font-bold text-gray-800">
-                                AWS
-                              </span>
+                                <span className="text-2xl font-bold text-gray-800">
+                                  AWS
+                                </span>
+                              </div>
+                              <Award className="w-8 h-8 text-yellow-500" />
                             </div>
-                            <Award className="w-8 h-8 text-yellow-500" />
+                            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                              Certificated Cloud Practitioner
+                            </h2>
+                            <p className="text-gray-600 mb-4">
+                              Professional Level Certification
+                            </p>
+                            <div className="flex items-center space-x-2 text-green-600 mb-4">
+                              <CheckCircle className="w-5 h-5" />
+                              <span className="font-medium">Verified</span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                      <DialogContent className="bg-[#1F1F1F] border border-[#1F1F1F] min-w-[750px] pr-10">
+                        <div className="flex gap-5">
+                          <img
+                            src="https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
+                            alt=""
+                            className="h-24 w-40"
+                          />
+                          <div className="flex flex-col gap-3">
+                            <h1 className="text-[24px] font-bold text-rgb(250, 250, 250) text-justify">
+                              AWS Certificated Cloud Practitioner
+                            </h1>
+                            <p className="text-justify text-[#D1D1D1]">
+                              I earned the AWS Certified Cloud Practitioner
+                              certification to strengthen my grasp of cloud
+                              computing and AWS services, showcasing my
+                              foundational expertise. This certification
+                              demonstrates my ability to identify and utilize
+                              key AWS services in projects, reflecting my
+                              dedication to staying updated and proficient in
+                              delivering cloud-based solutions.
+                            </p>
+                            <p className="text-[#9F9F9F]">15 June, 2023</p>
+                            <p className="text-[#D1D1D1]">
+                              To see the original badge and verify my
+                              certification, <br />
+                              <a
+                                href="https://www.credly.com/badges/522fa679-1150-4ad9-8841-bf6c439e00d6/public_url"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="font-bold text-xl text-[#ff335f] cursor-pointer"
+                              >
+                                click here
+                              </a>
+                            </p>
                           </div>
-                          <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                            Certified Solutions Architect
-                          </h2>
-                          <p className="text-gray-600 mb-4">
-                            Professional Level Certification
-                          </p>
-                          <div className="flex items-center space-x-2 text-green-600 mb-4">
-                            <CheckCircle className="w-5 h-5" />
-                            <span className="font-medium">Verified</span>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+
+                    <Dialog
+                      open={isDialogOpens}
+                      onOpenChange={() => {
+                        handleCloses();
+                      }}
                     >
-                      <Card className="w-full max-w-md overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
-                        <CardContent className="p-6">
-                          <div className="flex justify-between items-start mb-4">
-                            <div className="flex items-center space-x-2">
-                              <svg
-                                className="w-10 h-10"
-                                viewBox="0 0 32 32"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M15.63 31.388l-7.135-2.56V18.373l7.135 2.43zm1.3 0l7.135-2.56V18.373l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273zm-2.092-.8L0 14.22V3.75l7.135 2.43zm1.307 0l7.135-2.56V3.75L8.443 6.31zm-7.7-13.8l7.2-2.043 6.696 2.16-6.696 2.273zm23.052 13.8l-7.135-2.56V3.75l7.135 2.43zm1.3 0l7.135-2.56V3.75l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273z"
-                                  fill="#FF9900"
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        onClick={handleOpens}
+                        className="cursor-pointer"
+                      >
+                        <Card className="w-full max-w-md overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl">
+                          <CardContent className="px-6 pt-3.5">
+                            <div className="flex justify-between items-start mb-4">
+                              <div className="flex items-center space-x-2">
+                                {/* <svg
+                                  className="w-10 h-10"
+                                  viewBox="0 0 32 32"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M15.63 31.388l-7.135-2.56V18.373l7.135 2.43zm1.3 0l7.135-2.56V18.373l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273zm-2.092-.8L0 14.22V3.75l7.135 2.43zm1.307 0l7.135-2.56V3.75L8.443 6.31zm-7.7-13.8l7.2-2.043 6.696 2.16-6.696 2.273zm23.052 13.8l-7.135-2.56V3.75l7.135 2.43zm1.3 0l7.135-2.56V3.75l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273z"
+                                    fill="#FF9900"
+                                  />
+                                </svg> */}
+                                <img
+                                  src="https://www.santoshadhikari1345.com.np/assets/images/avatar-2.png"
+                                  alt=""
+                                  className="h-10 w-10"
                                 />
-                              </svg>
-                              <span className="text-2xl font-bold text-gray-800">
-                                AWS
-                              </span>
+                                <span className="text-2xl font-bold text-gray-800">
+                                  AWS
+                                </span>
+                              </div>
+                              <Award className="w-8 h-8 text-yellow-500" />
                             </div>
-                            <Award className="w-8 h-8 text-yellow-500" />
+                            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                              Certified Developer Associate
+                            </h2>
+                            <p className="text-gray-600 mb-4">
+                              Professional Level Certification
+                            </p>
+                            <div className="flex items-center space-x-2 text-green-600 mb-4">
+                              <CheckCircle className="w-5 h-5" />
+                              <span className="font-medium">Verified</span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                      <DialogContent className="bg-[#1F1F1F] border border-[#1F1F1F] min-w-[750px] pr-10">
+                        <div className="flex gap-5">
+                          <img
+                            src="https://www.santoshadhikari1345.com.np/assets/images/avatar-2.png"
+                            alt=""
+                            className="h-24 w-40"
+                          />
+                          <div className="flex flex-col gap-3">
+                            <h1 className="text-[24px] font-bold text-rgb(250, 250, 250) text-justify">
+                              AWS Certified Developer Associate
+                            </h1>
+                            <p className="text-justify text-[#D1D1D1]">
+                              I&apos;m currently preparing to obtain the AWS
+                              Certified Developer Associate certification to
+                              further enhance my understanding of AWS services
+                              and deepen my expertise in cloud development. This
+                              certification will not only expand my knowledge
+                              base but also enable me to effectively leverage
+                              AWS tools and services in developing scalable and
+                              efficient cloud applications. I&apos;m excited to
+                              embark on this journey to strengthen my skills and
+                              contribute more effectively to innovative cloud
+                              projects
+                            </p>
+                            {/* <p className="text-[#9F9F9F]">15 June, 2023</p>
+                            <p className="text-[#D1D1D1]">
+                              To see the original badge and verify my
+                              certification, <br />
+                              <a
+                                href=""
+                                target="_blank"
+                                rel="noreferrer"
+                                className="font-bold text-xl text-[#ff335f] cursor-pointer"
+                              >
+                                click here
+                              </a>
+                            </p> */}
                           </div>
-                          <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                            Certified Solutions Architect
-                          </h2>
-                          <p className="text-gray-600 mb-4">
-                            Professional Level Certification
-                          </p>
-                          <div className="flex items-center space-x-2 text-green-600 mb-4">
-                            <CheckCircle className="w-5 h-5" />
-                            <span className="font-medium">Verified</span>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   </div>
-                    
                 </TabsContent>
               </div>
             </Tabs>

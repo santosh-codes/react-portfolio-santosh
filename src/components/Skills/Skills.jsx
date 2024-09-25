@@ -113,17 +113,43 @@ export default function SkillsShowcase() {
   const [selectedCategory, setSelectedCategory] = React.useState(
     skills[0].category
   );
+  const [isInView, setIsInView] = React.useState(false);
+  const sectionRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <div className="container mx-auto md:px-10 lg:px-32 xl:px-28 flex flex-col justify-center items-center h-screen">
+    <div
+      ref={sectionRef}
+      className="container mx-auto md:px-10 lg:px-32 xl:px-28 flex flex-col justify-center items-center h-screen"
+    >
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.5 }}
-        className="text-3xl font-bold text-center mb-8"
+        className="mb-8 xl:mb-14 text-center mx-auto xl:text-[50px] text-[28px]"
       >
-        My Skills
+        My <span className="text-[#FF335F]">Skills</span>
       </motion.h1>
+
       <Tabs
         value={selectedCategory}
         onValueChange={setSelectedCategory}
@@ -136,13 +162,14 @@ export default function SkillsShowcase() {
             </TabsTrigger>
           ))}
         </TabsList>
+
         <AnimatePresence mode="wait">
           {skills.map((skill) => (
             <TabsContent key={skill.category} value={skill.category}>
               <motion.div
                 variants={containerVariants}
                 initial="hidden"
-                animate="visible"
+                animate={isInView ? "visible" : "hidden"}
                 exit="hidden"
                 className="flex flex-wrap gap-y-[19px] gap-x-[24px] justify-center mx-[2rem]"
               >
@@ -151,7 +178,7 @@ export default function SkillsShowcase() {
                     <div className="overflow-hidden pt-10">
                       <div className="px-6">
                         <motion.div
-                          className="flex items-center space-x-4"
+                          className="flex items-center space-x-4 cursor-pointer"
                           whileHover={{ scale: 1.05 }}
                           transition={{ type: "spring", stiffness: 300 }}
                         >
