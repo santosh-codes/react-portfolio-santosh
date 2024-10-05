@@ -140,6 +140,7 @@ export default function SkillsShowcase() {
     <div
       ref={sectionRef}
       className="container mx-auto md:px-10 lg:px-32 xl:px-28 flex flex-col justify-center items-center h-screen"
+      id="skill"
     >
       <motion.h1
         initial={{ opacity: 0, y: -20 }}

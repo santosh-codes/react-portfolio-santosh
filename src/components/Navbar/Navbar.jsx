@@ -88,7 +88,7 @@ function NavBar() {
               <div className="absolute bottom-0 left-0 w-0 bg-[#FF005A] h-0.5 transition-all duration-300 group-hover:w-full"></div>
             </li>
             <li className="relative group">
-              <a href="#" className="text-lightgray">
+              <a href="#skill" className="text-lightgray">
                 Skills
               </a>
               <div className="absolute bottom-0 left-0 w-0 bg-[#FF005A] h-0.5 transition-all duration-300 group-hover:w-full"></div>

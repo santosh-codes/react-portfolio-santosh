@@ -51,15 +51,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs1";
 import { motion } from "framer-motion";
 import { Award, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
+import { Dialog, DialogContent } from "../ui/dialog";
 import {
   User2,
   MailIcon,
@@ -68,8 +60,6 @@ import {
   GraduationCap,
   Calendar,
   Briefcase,
-  CalendarCheck,
-  CalendarX,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -105,7 +95,7 @@ const qualificationData = [
     title: "education",
     data: [
       {
-        university: "Crimson College of Technology, Pokhara University",
+        university: "Crimson College of Technology",
         qualification: "Bachelors in Computer Application",
         years: "2017-2022",
       },
@@ -138,43 +128,6 @@ const qualificationData = [
   },
 ];
 
-// const skillData = [
-//   {
-//     title: "certificates",
-//     data: [
-//       {
-//         name: "HTML, CSS",
-//       },
-//       {
-//         name: "Front-end Development",
-//       },
-//       {
-//         name: "Javascript, PHP",
-//       },
-//       {
-//         name: "Back-end Development",
-//       },
-//     ],
-//   },
-//   {
-//     title: "tools",
-//     data: [
-//       {
-//         name: "HTML, CSS",
-//       },
-//       {
-//         name: "Front-end Development",
-//       },
-//       {
-//         name: "Javascript, PHP",
-//       },
-//       {
-//         name: "Back-end Development",
-//       },
-//     ],
-//   },
-// ];
-
 const AboutMe = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const handleOpen = () => setIsDialogOpen(true);
@@ -193,8 +146,8 @@ const AboutMe = () => {
           About <span className="text-[#FF335F]">Me</span>
         </h2>
         <div className="flex flex-col xl:flex-row">
-          <div className="hidden xl:flex flex-1 relative ">
-            {/* <img src="" alt="" /> */}
+          <div className="hidden xl:flex flex-1 relative">
+            <img src="/santosh4.png" alt="" className="w-full" />
           </div>
           <div className="flex-1">
             <Tabs defaultValue="personal">
@@ -218,7 +171,7 @@ const AboutMe = () => {
               <div className="text-lg mt-12 xl:mt-8">
                 <TabsContent value="personal">
                   <div className="text-center xl:text-left">
-                    <h3 className="text-3xl font-bold mb-4">
+                    <h3 className="text-3xl font-bold mb-4 px-4 lg:px-0">
                       Unmatched Sevices Quality for Over 10 Years
                     </h3>
                     <p className="max-w-xl mx-auto xl:mx-0 mb-4">
@@ -239,13 +192,13 @@ const AboutMe = () => {
                         );
                       })}
                     </div>
-                    <div className="flex flex-col gap-y-2">
+                    {/* <div className="flex flex-col gap-y-2">
                       <div className="font-semibold text-[#ff335f] ">
                         Language Skill
                       </div>
                       <div className="border-b border-gray-500"></div>
                       <div>English, Nepali Spanish, French</div>
-                    </div>
+                    </div> */}
                   </div>
                 </TabsContent>
                 <TabsContent value="qualifications">
@@ -254,7 +207,7 @@ const AboutMe = () => {
                       My Awesome Journey
                     </h3>
                     <div className="grid md:grid-cols-2 gap-y-8">
-                      <div className="flex flex-col gap-y-6">
+                      <div className="flex flex-col items-center lg:items-start gap-y-6">
                         <div className="flex gap-x-4 items-center text-[22px] text-[#ff335f]">
                           <Briefcase />
                           <h4 className="capitalize font-medium">
@@ -287,7 +240,7 @@ const AboutMe = () => {
                           )}
                         </div>
                       </div>
-                      <div className="flex flex-col gap-y-6">
+                      <div className="flex flex-col items-center lg:items-start gap-y-6">
                         <div className="flex gap-x-4 items-center text-[22px] text-[#ff335f]">
                           <GraduationCap size={28} />
                           <h4 className="capitalize font-medium">
@@ -324,7 +277,7 @@ const AboutMe = () => {
                   </div>
                 </TabsContent>
                 <TabsContent value="certificates">
-                  <div className="flex flex-col gap-5 xl:flex-row">
+                  <div className="flex flex-col items-center gap-5 xl:flex-row">
                     <Dialog
                       open={isDialogOpen}
                       onOpenChange={() => {
@@ -342,16 +295,6 @@ const AboutMe = () => {
                           <CardContent className="px-6 pt-3.5">
                             <div className="flex justify-between items-start mb-4">
                               <div className="flex items-center space-x-2">
-                                {/* <svg
-                                  className="w-10 h-10"
-                                  viewBox="0 0 32 32"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M15.63 31.388l-7.135-2.56V18.373l7.135 2.43zm1.3 0l7.135-2.56V18.373l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273zm-2.092-.8L0 14.22V3.75l7.135 2.43zm1.307 0l7.135-2.56V3.75L8.443 6.31zm-7.7-13.8l7.2-2.043 6.696 2.16-6.696 2.273zm23.052 13.8l-7.135-2.56V3.75l7.135 2.43zm1.3 0l7.135-2.56V3.75l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273z"
-                                    fill="#FF9900"
-                                  />
-                                </svg> */}
                                 <img
                                   src="https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
                                   alt=""
@@ -432,16 +375,6 @@ const AboutMe = () => {
                           <CardContent className="px-6 pt-3.5">
                             <div className="flex justify-between items-start mb-4">
                               <div className="flex items-center space-x-2">
-                                {/* <svg
-                                  className="w-10 h-10"
-                                  viewBox="0 0 32 32"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M15.63 31.388l-7.135-2.56V18.373l7.135 2.43zm1.3 0l7.135-2.56V18.373l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273zm-2.092-.8L0 14.22V3.75l7.135 2.43zm1.307 0l7.135-2.56V3.75L8.443 6.31zm-7.7-13.8l7.2-2.043 6.696 2.16-6.696 2.273zm23.052 13.8l-7.135-2.56V3.75l7.135 2.43zm1.3 0l7.135-2.56V3.75l-7.135 2.43zm-7.7-13.8l7.2-2.033 6.696 2.16-6.696 2.273z"
-                                    fill="#FF9900"
-                                  />
-                                </svg> */}
                                 <img
                                   src="https://www.santoshadhikari1345.com.np/assets/images/avatar-2.png"
                                   alt=""
@@ -490,19 +423,6 @@ const AboutMe = () => {
                               contribute more effectively to innovative cloud
                               projects
                             </p>
-                            {/* <p className="text-[#9F9F9F]">15 June, 2023</p>
-                            <p className="text-[#D1D1D1]">
-                              To see the original badge and verify my
-                              certification, <br />
-                              <a
-                                href=""
-                                target="_blank"
-                                rel="noreferrer"
-                                className="font-bold text-xl text-[#ff335f] cursor-pointer"
-                              >
-                                click here
-                              </a>
-                            </p> */}
                           </div>
                         </div>
                       </DialogContent>

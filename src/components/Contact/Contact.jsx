@@ -130,51 +130,65 @@ import { MdEmail } from "react-icons/md";
 const Contact = () => {
   return (
     <>
-      <div className="flex flex-col justify-between items-center h-screen gap-5 py-16">
+      <div className="flex flex-col justify-center items-center h-screen" id="Contact">
         <div className="flex flex-col gap-5 pt-20">
-          <div className="text-[68px] font-[700] text-rgba(255, 255, 255, 0.92) text-center">
+          <div className="text-[35px] lg:text-[68px] font-[700] text-rgba(255, 255, 255, 0.92) text-center">
             Keep In Touch.
           </div>
           <div className="text-center">
-            <h1 className="text-[18px]">
+            <h1 className="text-[14px] lg:text-[18px]">
               I&apos;m currently specializing in{" "}
               <span className="text-[#FF005A]">DevOps Engineer</span>
             </h1>
-            <h1 className="text-[18px]">
+            <h1 className="text-[14px] lg:text-[18px]">
               Feel free to get in touch and talk more about your projects.
             </h1>
           </div>
           <div className="flex items-center gap-3 pt-5 justify-center">
-            <div className="bg-[#141414] px-3 py-1 rounded-md cursor-pointer">
-              <div className=" flex items-center gap-2">
-                <IoLogoGithub className="text-[#ff335f]" />
-                <span className="text-white font-bold ">Github</span>
+            <a
+              href="https://github.com/santosh-codes"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div className="bg-[#141414] px-3 py-1 rounded-md cursor-pointer">
+                <div className=" flex items-center gap-2">
+                  <IoLogoGithub className="text-[#ff335f]" />
+                  <span className="text-white font-bold ">Github</span>
+                </div>
               </div>
-            </div>
+            </a>
 
-            <div className="bg-[#141414] px-3 py-1 rounded-md cursor-pointer">
-              <div className=" flex items-center gap-2">
-                <IoLogoLinkedin className="text-[#ff335f]" />
-                <span className="text-white font-bold ">LinkedIn</span>
+            <a
+              href="https://www.linkedin.com/in/santosh-adhikari7531/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div className="bg-[#141414] px-3 py-1 rounded-md cursor-pointer">
+                <div className=" flex items-center gap-2">
+                  <IoLogoLinkedin className="text-[#ff335f]" />
+                  <span className="text-white font-bold ">LinkedIn</span>
+                </div>
               </div>
-            </div>
-            <div className="bg-[#141414] px-3 py-1 rounded-md cursor-pointer">
-              <div className=" flex items-center gap-2">
-                <MdEmail className="text-[#ff335f]" />
-                <span className="text-white font-bold ">Email</span>
+            </a>
+            <a href="mailto:santoshadhikari1345@gmail.com">
+              <div className="bg-[#141414] px-3 py-1 rounded-md cursor-pointer">
+                <div className=" flex items-center gap-2">
+                  <MdEmail className="text-[#ff335f]" />
+                  <span className="text-white font-bold ">Email</span>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
-        <div>
-          <h1 className="text-center text-[18px]">Designed and Developed by Santosh Adhikari.</h1>
+        {/* <div>
+          <h1 className="text-center text-[14px] lg:text-[18px]">Designed and Developed by Santosh Adhikari.</h1>
           <h1 className="text-[18px]">
             Built with &nbsp;
             <span className="text-[#ff335f]">React.js</span> &&nbsp;
             <span className="text-[#ff335f]">Shadcn UI.</span> Hosted on &nbsp;
             <span className="text-[#ff335f]">AWS</span>.
           </h1>
-        </div>
+        </div> */}
       </div>
     </>
   );

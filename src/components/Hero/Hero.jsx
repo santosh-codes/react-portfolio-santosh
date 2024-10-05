@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import "./Hero.scss";
 import { motion } from "framer-motion";
-import { IoLogoGithub,IoLogoLinkedin } from "react-icons/io";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 const Hero = () => {
   const textVarients = {
@@ -38,28 +38,42 @@ const Hero = () => {
             and commitment.
           </p>
           <div className="flex items-center gap-3 pt-5">
+            <a
+              href="https://github.com/santosh-codes"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div className="bg-[#141414] px-5 py-1 rounded-md">
+                <div className=" flex items-center gap-2 text-2xl">
+                  <IoLogoGithub className="text-[#ff335f]" />
+                  <span className="text-white font-medium ">Github</span>
+                </div>
+              </div>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/santosh-adhikari7531/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div className="bg-[#141414] px-5 py-1 rounded-md">
+                <div className=" flex items-center gap-2 text-2xl">
+                  <IoLogoLinkedin className="text-[#ff335f]" />
+                  <span className="text-white font-medium ">LinkedIn</span>
+                </div>
+              </div>
+            </a>
+            <a
+              href="mailto:santoshadhikari1345@gmail.com"
+            >
+              <div className="bg-[#141414] px-5 py-1 rounded-md">
+                <div className=" flex items-center gap-2 text-2xl">
+                  <MdEmail className="text-[#ff335f]" />
+                  <span className="text-white font-medium ">Email</span>
+                </div>
+              </div>
+            </a>
+          </div>
 
-          <div className="bg-[#141414] px-5 py-1 rounded-md">
-            <div className=" flex items-center gap-2 text-2xl"> 
-            <IoLogoGithub className="text-[#ff335f]"/>
-             <span className="text-white font-medium ">Github</span>
-            </div>
-          </div>
-          
-          <div className="bg-[#141414] px-5 py-1 rounded-md">
-            <div className=" flex items-center gap-2 text-2xl"> 
-            <IoLogoLinkedin className="text-[#ff335f]"/>
-             <span className="text-white font-medium ">LinkedIn</span>
-            </div>
-          </div>
-          <div className="bg-[#141414] px-5 py-1 rounded-md">
-            <div className=" flex items-center gap-2 text-2xl"> 
-            <MdEmail className="text-[#ff335f]"/>
-             <span className="text-white font-medium ">Email</span>
-            </div>
-          </div>
-          </div>
-        
           <div className="flex justify-center py-10 xl:py-5">
             <motion.img
               src="/mouse-cursor1.png"
