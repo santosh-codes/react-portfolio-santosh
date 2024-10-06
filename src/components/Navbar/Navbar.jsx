@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxCross2 } from "react-icons/rx";
+import { BsStack } from "react-icons/bs"; // Assuming the logo is a stack icon
 
 const navLinks = [
-  { title: "About Me", href: "#Footer" },
-  { title: "Skills", href: "" },
-  { title: "Blogs", href: "/" },
-  { title: "Contact", href: "/" },
+  { title: "About", href: "#aboutme" },
+  { title: "Skills", href: "#skills" },
+  { title: "Projects", href: "#projects" },
+  { title: "Blog", href: "#blog" },
 ];
 
 function NavBar() {
@@ -20,130 +21,69 @@ function NavBar() {
     fontFamily: "Poppins, sans-serif",
     fontWeight: 500,
   };
-  const menuVars = {
-    initial: {
-      scaleY: 0,
-    },
-    animate: {
-      scaleY: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.12, 0, 0.39, 0],
-      },
-    },
-    exit: {
-      scaleY: 0,
-      transition: {
-        delay: 0.5,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-  const containerVars = {
-    initial: {
-      transition: {
-        staggerChildren: 0.09,
-        staggerDirection: -1,
-      },
-    },
-    open: {
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.09,
-        staggerDirection: 1,
-      },
-    },
-  };
+
   return (
-    <div>
-      <div className="w-full h-auto py-1 md:py-5 md:px-10 lg:py-10 xl:py-5 lg:px-32 xl:px-28">
-        <nav className="flex items-center justify-between p-7 md:p-0">
-          <div className="rounded-full flex items-center">
-            <img
-              src="/santosh-adhikari.webp"
-              alt="Santosh Adhikari"
-              className="w-16 lg:w-20 2xl:w-12 xl:w-28 xl:h-28 2xl:h-12 rounded-full object-cover"
-            />
-            <h1 className="pl-3 text-2xl lg:text-3xl xl:text-lg text-lightgray">
-              Santosh Adhikari
-            </h1>
-            <img src="/bluetick.png" className="w-8 h-7 pl-1" alt="BlueTick" />
-          </div>
+    <div className="fixed top-0 left-0 w-full bg-[#1F1F1F] shadow-md">
+      <nav className="flex items-center justify-between p-5 md:px-10 lg:px-32">
+        {/* Logo on the left */}
+        <div className="flex items-center">
+          <BsStack size={30} className="mr-2 text-white" />
+        </div>
 
-          <div className="space-y-2 mr-7 block lg:hidden" onClick={toggleMenu}>
-            <span className="block w-14 h-1 bg-[#FF005A]"></span>
-            <span className="block w-14 h-1 bg-[#FF005A]"></span>
-            <span className="block w-10 h-1 bg-[#FF005A]"></span>
-          </div>
+        {/* Desktop Nav Links */}
+        <ul
+          className="hidden lg:flex font-Kaint gap-10 text-[18px] items-center"
+          style={buttonStyle}
+        >
+          {navLinks.map((link, index) => (
+            <li key={index} className="relative group">
+              <a href={link.href} className="text-white">
+                {link.title}
+              </a>
+              <div className="absolute bottom-0 left-0 w-0 bg-white h-0.5 transition-all duration-300 group-hover:w-full"></div>
+            </li>
+          ))}
+        </ul>
 
-          <ul
-            className="lg:flex font-Kaint gap-7 text-[18px] cursor-pointer hidden"
-            style={buttonStyle}
-          >
-            <li className="relative group">
-              <a href="AboutMe" className="text-lightgray">
-                About Me
-              </a>
-              <div className="absolute bottom-0 left-0 w-0 bg-[#FF005A] h-0.5 transition-all duration-300 group-hover:w-full"></div>
-            </li>
-            <li className="relative group">
-              <a href="#" className="text-lightgray">
-                Skills
-              </a>
-              <div className="absolute bottom-0 left-0 w-0 bg-[#FF005A] h-0.5 transition-all duration-300 group-hover:w-full"></div>
-            </li>
-            <li className="relative group">
-              <a href="#" className="text-lightgray">
-                Blogs
-              </a>
-              <div className="absolute bottom-0 left-0 w-0 bg-[#FF005A] h-0.5 transition-all duration-300 group-hover:w-full"></div>
-            </li>
-            <li className="relative group">
-              <a href="#Contact" className="text-lightgray">
-                Contact
-              </a>
-              <div className="absolute bottom-0 left-0 w-0 bg-[#FF005A] h-0.5 transition-all duration-300 group-hover:w-full"></div>
-            </li>
-          </ul>
-        </nav>
-      </div>
+        {/* Contact Button on the right */}
+        <button className="hidden lg:block bg-white text-[#1F1F1F] px-6 py-2 rounded-full">
+          Contact Me
+        </button>
+
+        {/* Hamburger Menu for mobile */}
+        <div className="lg:hidden space-y-2" onClick={toggleMenu}>
+          <span className="block w-8 h-1 bg-white"></span>
+          <span className="block w-8 h-1 bg-white"></span>
+          <span className="block w-8 h-1 bg-white"></span>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.div
-            variants={menuVars}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="fixed left-0 top-0 w-full h-screen origin-top bg-white p-10 z-[9999]"
+            initial={{ height: 0 }}
+            animate={{ height: "100vh" }}
+            exit={{ height: 0 }}
+            className="fixed left-0 top-0 w-full bg-[#1F1F1F] z-[9999] overflow-hidden"
           >
-            <div className="flex h-full flex-col">
-              <div className="flex justify-between items-center">
-                <h1 className="text-3xl text-[#FF005A]">Santosh Adhikari</h1>
-                <RxCross2
-                  onClick={toggleMenu}
-                  className="text-6xl text-[#FF005A] mr-3"
-                />
-              </div>
-              <motion.div
-                variants={containerVars}
-                initial="initial"
-                animate="open"
-                exit="initial"
-                className="flex flex-col h-full justify-center font-lora items-center gap-4 "
-              >
-                {navLinks.map((link, index) => {
-                  return (
-                    <div className="overflow-hidden" key={index}>
-                      <MobileNavLink
-                        key={index}
-                        title={link.title}
-                        href={link.href}
-                      />
-                    </div>
-                  );
-                })}
-              </motion.div>
+            <div className="flex flex-col h-full justify-center items-center">
+              <RxCross2
+                onClick={toggleMenu}
+                className="absolute top-5 right-5 text-4xl text-white"
+              />
+              <ul className="flex flex-col gap-8 text-3xl items-center text-white">
+                {navLinks.map((link, index) => (
+                  <li key={index}>
+                    <a href={link.href} onClick={toggleMenu}>
+                      {link.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <button className="mt-10 bg-white text-[#1F1F1F] px-6 py-3 rounded-full">
+                Contact Me
+              </button>
             </div>
           </motion.div>
         )}
@@ -153,29 +93,3 @@ function NavBar() {
 }
 
 export default NavBar;
-const mobileLinkVars = {
-  initial: {
-    y: "30vh",
-    transition: {
-      duration: 0.5,
-      ease: [0.37, 0, 0.63, 1],
-    },
-  },
-  open: {
-    y: 0,
-    transition: {
-      ease: [0, 0.55, 0.45, 1],
-      duration: 0.7,
-    },
-  },
-};
-const MobileNavLink = ({ title, href }) => {
-  return (
-    <motion.div
-      variants={mobileLinkVars}
-      className="text-5xl uppercase text-[#FF005A] py-5"
-    >
-      <a href={href}>{title}</a>
-    </motion.div>
-  );
-};
